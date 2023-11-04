@@ -1,0 +1,55 @@
+import java.util.Scanner;
+
+public class ATM {
+
+private static final int BALANCE_INQUIRY = 1;
+private static final int WITHDRAWAL = 2;
+private static final int DEPOSIT = 3;
+private static final int EXIT = 4;
+
+public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+
+int choice;
+do {
+System.out.println("Please select your transaction:");
+System.out.println("1. Balance Inquiry");
+System.out.println("2. Withdrawal");
+System.out.println("3. Deposit");
+
+
+System.out.println("4. Exit");
+
+choice = scanner.nextInt();
+
+switch (choice) {
+case BALANCE_INQUIRY:
+System.out.println("Your balance is 10000.");
+break;
+case WITHDRAWAL:
+System.out.println("How much would you like to withdraw?");
+int withdrawalAmount = scanner.nextInt();
+if (withdrawalAmount > 10000) {
+System.out.println("You cannot withdraw more than 10000 at a time.");
+} else {
+System.out.println("You have withdrawn " + withdrawalAmount + ".");
+}
+break;
+case DEPOSIT:
+
+System.out.println("How much would you like to deposit?");
+int depositAmount = scanner.nextInt();
+System.out.println("You have deposited " + depositAmount + ".");
+break;
+
+case EXIT:
+System.out.println("Thank you for using our ATM.");
+break;
+default:
+System.out.println("Invalid choice.");
+
+break;
+}
+} while (choice != EXIT);
+}
+}
